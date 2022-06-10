@@ -1,0 +1,1 @@
+export const DATA_URL = 'http://localhost:100/data'; // data url to use

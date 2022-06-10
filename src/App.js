@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from './Components/Form';
 import TodosData from './Components/TodosData';
+import { DATA_URL } from './API';
 import './App.scss';
 
 import axios from 'axios';
@@ -11,8 +12,10 @@ const App = () => {
   const [items, setItems] = useState([]); // fetched data
   const [title, setTitle] = useState(''); // new todo To Add
   const [reFetch, setRefetch] = useState(false);
+  const [editSign, setEditSign] = useState(false);
+  const [titleToEdit, setTitleToEdit] = useState('');
 
-  const DATA_URL = 'http://localhost:100/data'; // data url to use
+
 
   useEffect(() => {
 
@@ -39,13 +42,6 @@ const App = () => {
     setRefetch(false);
   };
 
-  // handel delete
-  const handelDelete = async (id) => {
-    const FilteredItems = items.filter(item => item.id !== id);
-    setRefetch(true);
-    await axios.delete(`${DATA_URL}/${id}`, { ...FilteredItems });
-    setRefetch(false);
-  };
 
 
 
@@ -56,8 +52,10 @@ const App = () => {
           title={title}
           setTitle={setTitle}
           handelSubmit={handelSubmit}
+          editSign={editSign}
+          titleToEdit={titleToEdit}
         />
-        <TodosData items={items} handelDelete={handelDelete} />
+        <TodosData items={items} setRefetch={setRefetch} setEditSign={setEditSign} setTitleToEdit={setTitleToEdit} />
       </div>
     </div>
   );

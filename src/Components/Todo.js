@@ -1,7 +1,23 @@
 import React from 'react';
 import { FaTrashAlt, FaEdit } from 'react-icons/fa';
+import { DATA_URL } from '../API';
+import axios from 'axios';
 
-const Todo = ({ id, title, completed, handelDelete }) => {
+const Todo = ({ id, title, completed, setRefetch, setEditSign, items, setTitleToEdit }) => {
+
+  // handel delete
+  const handelDelete = async (id) => {
+    const FilteredItems = items.filter(item => item.id !== id);
+    setRefetch(true);
+    await axios.delete(`${DATA_URL}/${id}`, { ...FilteredItems });
+    setRefetch(false);
+  };
+
+  // handel edit
+  const handelEditClick = (id) => {
+    const itemToEdit = items.filter(item => item.id === id);
+    setTitleToEdit(itemToEdit[0].title);
+  };
 
   return (
     <div className='todos'>
@@ -16,8 +32,14 @@ const Todo = ({ id, title, completed, handelDelete }) => {
             <p>{title}</p>
           </div>
           <div className='todo-actions'>
-            <FaEdit className='todo-edit' />
-            <FaTrashAlt className='todo-delete' onClick={() => handelDelete(id)} />
+            <FaEdit
+              className='todo-edit'
+              onClick={() => { handelEditClick(id); setEditSign(true); }}
+            />
+            <FaTrashAlt
+              className='todo-delete'
+              onClick={() => handelDelete(id)}
+            />
           </div>
         </li>
 
