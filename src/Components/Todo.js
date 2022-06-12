@@ -3,7 +3,7 @@ import { FaTrashAlt, FaEdit } from 'react-icons/fa';
 import { DATA_URL } from '../API';
 import axios from 'axios';
 
-const Todo = ({ id, title, completed, setRefetch, setEditSign, items, setTitleToEdit }) => {
+const Todo = ({ id, title, completed, setRefetch, setEditSign, items, setTitleToEdit, setNewTitle }) => {
 
   // handel delete
   const handelDelete = async (id) => {
@@ -16,7 +16,8 @@ const Todo = ({ id, title, completed, setRefetch, setEditSign, items, setTitleTo
   // handel edit
   const handelEditClick = (id) => {
     const itemToEdit = items.filter(item => item.id === id);
-    setTitleToEdit(itemToEdit[0].title);
+    setTitleToEdit(itemToEdit);
+    setNewTitle(itemToEdit[0].title);
   };
 
   return (

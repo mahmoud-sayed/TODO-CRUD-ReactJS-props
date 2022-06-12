@@ -1,7 +1,7 @@
 import React from 'react';
 import Todo from './Todo';
 
-const TodosData = ({ items, handelDelete, setRefetch, setEditSign, setTitleToEdit }) => {
+const TodosData = ({ items, handelDelete, setRefetch, setEditSign, setTitleToEdit, setNewTitle }) => {
 
 
   return (
@@ -20,6 +20,7 @@ const TodosData = ({ items, handelDelete, setRefetch, setEditSign, setTitleToEdi
               items={items}
               setEditSign={setEditSign}
               setTitleToEdit={setTitleToEdit}
+              setNewTitle={setNewTitle}
             />
 
           )

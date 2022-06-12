@@ -14,6 +14,7 @@ const App = () => {
   const [reFetch, setRefetch] = useState(false);
   const [editSign, setEditSign] = useState(false);
   const [titleToEdit, setTitleToEdit] = useState('');
+  const [newTitle, setNewTitle] = useState('');
 
 
 
@@ -54,8 +55,9 @@ const App = () => {
           handelSubmit={handelSubmit}
           editSign={editSign}
           titleToEdit={titleToEdit}
+          setNewTitle={setNewTitle} newTitle={newTitle}
         />
-        <TodosData items={items} setRefetch={setRefetch} setEditSign={setEditSign} setTitleToEdit={setTitleToEdit} />
+        <TodosData items={items} setRefetch={setRefetch} setEditSign={setEditSign} setTitleToEdit={setTitleToEdit} setNewTitle={setNewTitle} />
       </div>
     </div>
   );
