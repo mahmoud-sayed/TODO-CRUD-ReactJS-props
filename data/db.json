@@ -1,30 +1,9 @@
 {
   "data": [
     {
-      "0": {
-        "0": {
-          "0": {
-            "id": 2,
-            "title": "wake up",
-            "completed": false
-          },
-          "title": "wake upd",
-          "id": 2
-        },
-        "title": "",
-        "id": 2
-      },
-      "title": "sadsad",
-      "id": 2
-    },
-    {
-      "0": {
-        "id": 3,
-        "title": "wake up again",
-        "completed": false
-      },
-      "title": "wake up again ",
-      "id": 3
+      "id": 4,
+      "title": "eqwewqe",
+      "completed": true
     }
   ]
 }

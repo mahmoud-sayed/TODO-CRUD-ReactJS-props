@@ -56,6 +56,8 @@ const App = () => {
           editSign={editSign}
           titleToEdit={titleToEdit}
           setNewTitle={setNewTitle} newTitle={newTitle}
+          setEditSign={setEditSign}
+
         />
         <TodosData items={items} setRefetch={setRefetch} setEditSign={setEditSign} setTitleToEdit={setTitleToEdit} setNewTitle={setNewTitle} />
       </div>
