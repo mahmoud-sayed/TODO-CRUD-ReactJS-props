@@ -2,7 +2,7 @@
 
  This project is a to do list with the things you need to do during the day
 
-### The project using React, JS and CSS
+### The project using React, JS and SASS
 
 ### Image from project
 
